@@ -1,14 +1,65 @@
-{
-  "p1": {
-    "name": "Marcus",
-    "age": 34,
-    "favoriteColor": "Green",
-    "data": [1, 2, 3, 4, 5]
+[
+  {
+    "gender": "Male",
+    "species": "Dog",
+    "name": "Buddy",
+    "breed": "Golden Retriever",
+    "age": 5
   },
-  "p2": {
-    "name": "Niklas",
-    "age": 31,
-    "favoriteColor": "Blue",
-    "data": ["a", "b", "c", "d", "e"]
+  {
+    "gender": "Male",
+    "species": "Cat",
+    "name": "Milo",
+    "breed": "Siamese",
+    "age": 3
+  },
+  {
+    "gender": "Female",
+    "species": "Dog",
+    "name": "Luna",
+    "breed": "Labrador Retriever",
+    "age": 2
+  },
+  {
+    "gender": "Male",
+    "species": "Dog",
+    "name": "Charlie",
+    "breed": "Beagle",
+    "age": 4
+  },
+  {
+    "gender": "Male",
+    "species": "Dog",
+    "name": "Picasso",
+    "breed": "Rottweiler",
+    "age": 9
+  },
+  {
+    "gender": "Male",
+    "species": "Human",
+    "name": "Juhn",
+    "breed": "Asian",
+    "age": 12
+  },
+  {
+    "gender": "Male",
+    "species": "Dog",
+    "name": "Ragnar",
+    "breed": "Rottweiler",
+    "age": 12
+  },
+  {
+    "gender": "test",
+    "species": "test",
+    "name": "Test",
+    "breed": "test",
+    "age": 12
+  },
+  {
+    "gender": "male",
+    "species": "Dragon",
+    "name": "dk",
+    "breed": "redfire",
+    "age": 55
   }
-}
+]
