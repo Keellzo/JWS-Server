@@ -1,13 +1,13 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class Server {
     public static void main(String[] args) {
-
         String filepath = "C:\\Users\\kelly\\Desktop\\Grit22\\JWS\\Server\\src\\data.json";
 
         ServerSocket serverSocket;
@@ -28,73 +28,89 @@ public class Server {
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
 
-                String requestLine = bufferedReader.readLine();
+                boolean keepAlive = true;
 
-                int contentLength = -1;
-                String message;
+                while (keepAlive) {
+                    String requestLine = bufferedReader.readLine();
 
-                while (true) {
-                    message = bufferedReader.readLine();
-                    if (message == null || message.trim().isEmpty()) {
+                    if (requestLine == null) {
                         break;
                     }
 
-                    if (message.startsWith("Content-Length:")) {
-                        contentLength = Integer.parseInt(message.substring("Content-Length:".length()).trim());
-                    }
-                }
+                    int contentLength = -1;
+                    String message;
+                    String connectionHeader = "";
 
-                if (requestLine.startsWith("GET")) {
-                    JSONParser parser = new JSONParser();
-                    JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(filepath));
-
-                    if (requestLine.contains("/petsBySpecies")) {
-                        String species = requestLine.split("species=")[1].split(" ")[0];
-                        JSONArray filteredArray = new JSONArray();
-                        for (Object obj : jsonArray) {
-                            JSONObject jsonObject = (JSONObject) obj;
-                            if (species.equalsIgnoreCase((String) jsonObject.get("species"))) {
-                                filteredArray.add(jsonObject);
-                            }
+                    while (true) {
+                        message = bufferedReader.readLine();
+                        if (message == null || message.trim().isEmpty()) {
+                            break;
                         }
-                        jsonArray = filteredArray;
+
+                        if (message.startsWith("Content-Length:")) {
+                            contentLength = Integer.parseInt(message.substring("Content-Length:".length()).trim());
+                        }
+
+                        if (message.startsWith("Connection:")) {
+                            connectionHeader = message.substring("Connection:".length()).trim();
+                        }
                     }
 
-                    String response = jsonArray.toJSONString();
-                    bufferedWriter.write("HTTP/1.1 200 OK\r\n");
-                    bufferedWriter.write("Content-Type: application/json\r\n");
-                    bufferedWriter.write("Content-Length: " + response.length() + "\r\n");
-                    bufferedWriter.write("Connection: keep-alive\r\n");
-                    bufferedWriter.write("\r\n");
-                    bufferedWriter.write(response);
-                } else if (requestLine.startsWith("POST")) {
-                    StringBuilder payloadBuilder = new StringBuilder();
-                    if (contentLength > 0) {
-                        char[] contentBuffer = new char[contentLength];
-                        bufferedReader.read(contentBuffer);
-                        payloadBuilder.append(new String(contentBuffer));
-                    }
+                    if (requestLine.startsWith("GET")) {
+                        JSONParser parser = new JSONParser();
+                        JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(filepath));
 
-                    String payload = payloadBuilder.toString();
-                    JSONParser parser = new JSONParser();
-                    JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(filepath));
-                    JSONObject jsonObject = (JSONObject) parser.parse(payload);
-                    jsonArray.add(jsonObject);
-                    FileWriter fileWriter = new FileWriter(filepath);
-                    fileWriter.write(jsonArray.toJSONString());
-                    fileWriter.close();
-                    bufferedWriter.write("HTTP/1.1 201 Created\r\n");
-                    bufferedWriter.write("Content-Length: 0\r\n");
-                    bufferedWriter.write("Connection: close\r\n");
-                    bufferedWriter.write("\r\n");
-                } else {
-                    bufferedWriter.write("HTTP/1.1 400 Bad Request\r\n");
-                    bufferedWriter.write("Content-Length: 0\r\n");
-                    bufferedWriter.write("Connection: close\r\n");
-                    bufferedWriter.write("\r\n");
+                        if (requestLine.contains("/pets?species=")) {
+                            String species = requestLine.split("species=")[1].split(" ")[0];
+                            JSONArray filteredArray = new JSONArray();
+                            for (Object obj : jsonArray) {
+                                JSONObject jsonObject = (JSONObject) obj;
+                                if (species.equalsIgnoreCase((String) jsonObject.get("species"))) {
+                                    filteredArray.add(jsonObject);
+                                }
+                            }
+                            jsonArray = filteredArray;
+                        }
+
+                        String response = jsonArray.toJSONString();
+                        bufferedWriter.write("HTTP/1.1 200 OK\r\n");
+                        bufferedWriter.write("Content-Type: application/json\r\n");
+                        bufferedWriter.write("Content-Length: " + response.length() + "\r\n");
+                        bufferedWriter.write("Connection: keep-alive\r\n"); // Modified this line
+                        bufferedWriter.write("\r\n");
+                        bufferedWriter.write(response);
+                    } else if (requestLine.startsWith("POST")) {
+                        StringBuilder payloadBuilder = new StringBuilder();
+                        if (contentLength > 0) {
+                            char[] contentBuffer = new char[contentLength];
+                            bufferedReader.read(contentBuffer);
+                            payloadBuilder.append(new String(contentBuffer));
+                        }
+
+                        String payload = payloadBuilder.toString();
+                        JSONParser parser = new JSONParser();
+                        JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(filepath));
+                        JSONObject jsonObject = (JSONObject) parser.parse(payload);
+                        jsonArray.add(jsonObject);
+                        FileWriter fileWriter = new FileWriter(filepath);
+                        fileWriter.write(jsonArray.toJSONString());
+                        fileWriter.close();
+                        bufferedWriter.write("HTTP/1.1 201 Created\r\n");
+                        bufferedWriter.write("Content-Length: 0\r\n");
+                        bufferedWriter.write("Connection: keep-alive\r\n"); // Modified this line
+                        bufferedWriter.write("\r\n");
+                    } else {
+                        bufferedWriter.write("HTTP/1.1 400 Bad Request\r\n");
+                        bufferedWriter.write("Content-Length: 0\r\n");
+                        bufferedWriter.write("Connection: keep-alive\r\n"); // Modified this line
+                        bufferedWriter.write("\r\n");
+                    }
+                    bufferedWriter.flush();
+
+                    if (!"keep-alive".equalsIgnoreCase(connectionHeader)) {
+                        keepAlive = false;
+                    }
                 }
-
-                bufferedWriter.flush();
                 socket.close();
                 inputStreamReader.close();
                 outputStreamWriter.close();
