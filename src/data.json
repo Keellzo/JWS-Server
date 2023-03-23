@@ -1,1 +1,363 @@
-[{"gender":"Male","species":"Dog","name":"Buddy","breed":"Golden Retriever","age":5},{"gender":"Male","species":"Cat","name":"Milo","breed":"Siamese","age":3},{"gender":"Female","species":"Dog","name":"Luna","breed":"Labrador Retriever","age":2},{"gender":"Male","species":"Dog","name":"Charlie","breed":"Beagle","age":4},{"gender":"Male","species":"Dog","name":"Picasso","breed":"Rottweiler","age":9},{"gender":"Male","species":"Human","name":"Juhn","breed":"Asian","age":12},{"gender":"Male","species":"Dog","name":"Ragnar","breed":"Rottweiler","age":12},{"gender":"male","species":"Dragon","name":"dk","breed":"redfire","age":55},{"gender":"male","species":"wolf","name":"Ragnar","breed":"graywolf","age":7},{"gender":"Rainbow child","species":"Sötnos","name":"Karim","breed":"Fräken","age":41},{"gender":"male","species":"lion","name":"kelly","breed":"lionking","age":8}]
+[
+  {
+    "gender": "Male",
+    "species": "Dog",
+    "name": "Buddy",
+    "breed": "Golden Retriever",
+    "age": 5
+  },
+  {
+    "gender": "Male",
+    "species": "Cat",
+    "name": "Milo",
+    "breed": "Siamese",
+    "age": 3
+  },
+  {
+    "gender": "Female",
+    "species": "Dog",
+    "name": "Luna",
+    "breed": "Labrador Retriever",
+    "age": 2
+  },
+  {
+    "gender": "Male",
+    "species": "Dog",
+    "name": "Charlie",
+    "breed": "Beagle",
+    "age": 4
+  },
+  {
+    "gender": "Male",
+    "species": "Dog",
+    "name": "Picasso",
+    "breed": "Rottweiler",
+    "age": 9
+  },
+  {
+    "gender": "Male",
+    "species": "Human",
+    "name": "Juhn",
+    "breed": "Asian",
+    "age": 12
+  },
+  {
+    "gender": "Male",
+    "species": "Dog",
+    "name": "Ragnar",
+    "breed": "Rottweiler",
+    "age": 12
+  },
+  {
+    "gender": "male",
+    "species": "Dragon",
+    "name": "dk",
+    "breed": "redfire",
+    "age": 55
+  },
+  {
+    "gender": "male",
+    "species": "wolf",
+    "name": "Ragnar",
+    "breed": "graywolf",
+    "age": 7
+  },
+  {
+    "gender": "male",
+    "species": "lion",
+    "name": "kelly",
+    "breed": "lionking",
+    "age": 8
+  },
+  {
+    "gender": "m",
+    "species": "test",
+    "name": "test",
+    "breed": "test",
+    "age": 12
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "tito",
+    "breed": "shepard",
+    "age": 12
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "human",
+    "name": "karim",
+    "breed": "arab",
+    "age": 41
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "cat",
+    "name": "Felix",
+    "breed": "British Shorthair",
+    "age": -2
+  },
+  {
+    "gender": "",
+    "species": "",
+    "name": "",
+    "breed": "",
+    "age": 0
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "cat",
+    "name": "",
+    "breed": "Siamese",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "cat",
+    "name": "Felix",
+    "breed": "British Shorthair",
+    "age": -2
+  },
+  {
+    "gender": "male",
+    "species": "cat",
+    "name": "Felix",
+    "breed": "British Shorthair",
+    "age": -2
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "cat",
+    "name": "Felix",
+    "breed": "British Shorthair",
+    "age": -2
+  },
+  {
+    "gender": "",
+    "species": "",
+    "name": "",
+    "breed": "",
+    "age": 0
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "cat",
+    "name": "",
+    "breed": "Siamese",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "",
+    "species": "",
+    "name": "",
+    "breed": "",
+    "age": 0
+  },
+  {
+    "gender": "male",
+    "species": "cat",
+    "name": "",
+    "breed": "Siamese",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "invalid_pet": "data"
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "invalid_pet": "data"
+  },
+  {
+    "invalid_pet": "data"
+  },
+  {
+    "invalid_pet": "data"
+  },
+  {
+    "invalid_pet": "data"
+  },
+  {
+    "invalid_pet": "data"
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  },
+  {
+    "gender": "male",
+    "species": "dog",
+    "name": "Max",
+    "breed": "Labrador",
+    "age": 3
+  }
+]
